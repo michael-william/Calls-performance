@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import datetime
 from datetime import datetime as dt
-import streamlit_app as st
+import streamlit as st
 import plotly.graph_objects as go
 
 
