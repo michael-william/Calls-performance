@@ -198,9 +198,9 @@ if uploaded_file is not None:
     years = get_years(st.session_state.df)
     min_year, max_year = st.sidebar.slider(
         "Year selector",
-        value=[years[0], years[-1]],
+        value=[years[-1], years[-1]],
         step=datetime.timedelta(days=365),
-        min_value=years[-1],
+        min_value=years[0],
         max_value=years[-1],
         format="YYYY",    
     )
