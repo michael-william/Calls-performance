@@ -200,7 +200,7 @@ if uploaded_file is not None:
         "Year selector",
         value=[years[0], years[-1]],
         step=datetime.timedelta(days=365),
-        min_value=years[0],
+        min_value=years[-1],
         max_value=years[-1],
         format="YYYY",    
     )
