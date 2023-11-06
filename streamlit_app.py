@@ -111,16 +111,15 @@ def total_premiums(dataframe, min_year, max_year):
             data['symbols'].extend([sym])
             data['sold'].extend([tmp['Date'][i]])
             data['expired'].extend([tmp['Exp. Date'][i]])
-            data['price'].extend(tmp['Price'])
-            data['quantity'].extend(tmp['Quantity'])
-            data['amount'].extend(tmp['Amount'])
-            data["size"].extend(tmp['Amount']/10)
-            quantitiy = tmp['Quantity'].values[0]
-            amount = tmp['Amount'].values[0]
-            price = tmp['Price'].values[0]
-            strike = tmp['Strike'].values[0]
+            data['price'].extend([tmp['Price'][i]])
+            data['quantity'].extend([tmp['Quantity'][i]])
+            data['amount'].extend([tmp['Amount'][i]])
+            data["size"].extend([tmp['Amount'][i]/10])
+            quantitiy = tmp['Quantity'][i]
+            amount = tmp['Amount'][i]
+            price = tmp['Price'][i]
+            strike = tmp['Strike'][i]
             data['text'].extend([f'Strike: ${strike}<br>Quantity: {quantitiy}<br>Price: ${price}<br>Amount: ${amount}'])
-    print(chart_query)
         
     return total_prem, monthly_prem_avg, symbol_prem_totals, symbol_monthly_avg, query, data
 
@@ -291,6 +290,6 @@ if uploaded_file is not None:
             ]
         )
         fig.add_vline(x=dt.today(), line_width=1, line_dash="dash", line_color=red_hex)
-        print(fig.data)
+        fig.update_layout(title='Trade activity')
         st.plotly_chart(fig, config={'displayModeBar': False}, use_container_width=True)
 
