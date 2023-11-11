@@ -252,6 +252,7 @@ if uploaded_file is not None:
                     y=data["line_y"],
                     mode="lines",
                     showlegend=False,
+                    hoverinfo='skip',
                     marker=dict(
                         color="grey"
                     ),
@@ -267,7 +268,7 @@ if uploaded_file is not None:
                     ),
                 customdata=data['text'],
                     hovertemplate=
-                        "<b>%{y}</b><br><br>" +
+                        "<b>%{y}<br>Sold: %{x}</b><br><br>" +
                         "%{customdata}<br>" +
                         "<extra></extra>",
                     
@@ -283,7 +284,7 @@ if uploaded_file is not None:
                     ),
                     customdata=data['text'],
                     hovertemplate=
-                        "<b>%{y}</b><br><br>" +
+                        "<b>%{y}<br>Expire: %{x}</b><br><br>" +
                         "%{customdata}<br>" +
                         "<extra></extra>",
                 ),
